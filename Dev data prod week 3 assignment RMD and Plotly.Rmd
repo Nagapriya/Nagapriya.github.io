@@ -1,0 +1,31 @@
+---
+title: "Smallest babies saved"
+author: "Nagapriya Kavoori"
+date: "July 13, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+```
+
+## Premature babies survival
+
+With advances in Healthcare, smaller and smaller babies are being saved today. The average gestation period for human beings is 40 weeks. The smallest (most preterm) baby saved was born after just 22 weeks of gestation. 
+
+## Survival rates
+The Survival rates increase with every day in the womb. The plot in the next page shows the survival rates as a function of gestational week of birth. 
+```{r include=FALSE, echo=FALSE}
+survrate<-data.frame(weeks=c(29,28,27,26,25,24,23,22),survperc=c(95,92,87,77,66,40,19,0))
+ 
+```
+#### Data Source
+The data for the presentation is obtained from <https://www.tommys.org/our-organisation/why-we-exist/statistics-about-pregnancy/premature-birth-statistics> and is slightly outdated.
+
+## Smallest babies saved
+```{r  echo=FALSE}
+plot_ly(survrate, x = ~weeks, y = ~survperc, type = "scatter", mode="markers")%>% layout(xaxis=list(title="Weeks of gestation at birth"), yaxis=list(title = "Survival percentage (%)"))
+```
+
+
